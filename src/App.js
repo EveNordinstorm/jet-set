@@ -5,7 +5,6 @@ import "./App.css";
 import Home from "./components/pages/Home";
 import Holidays from "./components/pages/Holidays";
 import Products from "./components/pages/Products";
-import SignUp from "./components/pages/SignUp";
 import Footer from "./components/Footer";
 
 function App() {
@@ -17,7 +16,6 @@ function App() {
           <Route path="/" exact element={<Home />}></Route>
           <Route path="/holidays" exact element={<Holidays />}></Route>
           <Route path="/products" exact element={<Products />}></Route>
-          <Route path="/sign-up" exact element={<SignUp />}></Route>
         </Routes>
         <Footer />
       </Router>

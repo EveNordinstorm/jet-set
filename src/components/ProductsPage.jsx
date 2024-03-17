@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { Button } from "./Button";
-import "./Products.css";
 
 const ProductsPage = () => {
 
@@ -46,7 +45,7 @@ const ProductsPage = () => {
                         <span className="py-4 px-6"></span>
                         <button className="bg-gray-200 py-2 px-5 rounded-lg text-sky-500 text-3xl" onClick={() => setAmount((prev) => prev + 1)}>+</button>
                     </div>
-                    <Button buttonStyle="btn--blue">Add to Cart</Button>
+                    <Button buttonStyle="btn--blue" buttonSize="btn--medium">Add to Cart</Button>
                 </div>
             </div>
         </div>
@@ -75,7 +74,7 @@ const ProductsPage = () => {
                         <span className="py-4 px-6"></span>
                         <button className="bg-gray-200 py-2 px-5 rounded-lg text-sky-500 text-3xl" onClick={() => setAmount((prev) => prev + 1)}>+</button>
                     </div>
-                    <Button buttonStyle="btn--blue">Add to Cart</Button>
+                    <Button buttonStyle="btn--blue" buttonSize="btn--medium">Add to Cart</Button>
                 </div>
             </div>
         </div>

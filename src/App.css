@@ -13,17 +13,7 @@
   height: 90vh;
   align-items: center;
   justify-content: center;
-  /* font-size: 3rem; */
 }
-
-/* .holidays {
-  background-image: url("/public/images/plane-window.jpg");
-  background-position: center;
-  background-size: cover;
-  background-repeat: no-repeat;
-  color: #fff;
-  font-size: 100px;
-} */
 
 .products {
   background-image: url("/public/images/tickets.jpg");

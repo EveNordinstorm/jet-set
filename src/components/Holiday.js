@@ -1,4 +1,6 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import { Button } from "./Button";
 import HolidayItem from "./HolidayItem";
 import "./Holidays.css";
 
@@ -35,23 +37,27 @@ function Holiday() {
               price="£1000"
             />
 
-            <div class="flex justify-center">
+            <div className="flex justify-center">
               <div
-                class="block w-[386px] h-[450px] lg:w-[772px] lg:h-[300px] rounded bg-center bg-black/60 bg-blend-overlay bg-cover p-8 drop-shadow-lg"
+                className="block w-[386px] h-[450px] lg:w-[772px] lg:h-[300px] rounded bg-center bg-black/60 bg-blend-overlay bg-cover p-8 drop-shadow-lg"
                 style={{
                   backgroundImage: `url("images/tour-group-2.jpg")`,
                 }}
               >
-                <h5 class="mb-4 text-3xl font-medium leading-tight text-neutral-800 text-white dark:text-neutral-50">
+                <h5 className="mb-4 text-3xl font-medium leading-tight text-neutral-800 text-white dark:text-neutral-50">
                   Add a Guided Tour to Your Package
                 </h5>
-                <p class="mb-8 text-lg text-white">
+                <p className="mb-8 text-lg text-white">
                   Make your holiday one to remember with Jet Set's tour guide
                   packages, available for all of our destinations. Find out more
                   about the rich culture of our locations and let us help you
                   discover the hidden gems they have to offer.
                 </p>
-                <btn class="holiday__btn">Discover More</btn>
+                <Link to="/products">
+                  <Button buttonStyle="btn--blue" buttonSize="btn--medium">
+                    Discover More
+                  </Button>
+                </Link>
               </div>
             </div>
 
@@ -77,22 +83,26 @@ function Holiday() {
               price="£1000"
             />
 
-            <div class="flex justify-center">
+            <div className="flex justify-center">
               <div
-                class="block w-[386px] h-[450px] lg:w-[772px] lg:h-[300px] rounded bg-center bg-black/60 bg-blend-overlay bg-cover p-8 drop-shadow-lg"
+                className="block w-[386px] h-[450px] lg:w-[772px] lg:h-[300px] rounded bg-center bg-black/60 bg-blend-overlay bg-cover p-8 drop-shadow-lg"
                 style={{
                   backgroundImage: `url("images/plane-tickets.jpg")`,
                 }}
               >
-                <h5 class="mb-4 text-3xl font-medium leading-tight text-neutral-800 text-white dark:text-neutral-50">
+                <h5 className="mb-4 text-3xl font-medium leading-tight text-neutral-800 text-white dark:text-neutral-50">
                   Use Our Ticket Booker
                 </h5>
-                <p class="mb-8 text-lg text-white">
+                <p className="mb-8 text-lg text-white">
                   We offer a ticket booking service to ensure you find the best
                   deals hassle-free. Let us save you time and provide you with
                   your flight preferences.
                 </p>
-                <btn class="holiday__btn">Discover More</btn>
+                <Link to="/products">
+                  <Button buttonStyle="btn--blue" buttonSize="btn--medium">
+                    Discover More
+                  </Button>
+                </Link>
               </div>
             </div>
 

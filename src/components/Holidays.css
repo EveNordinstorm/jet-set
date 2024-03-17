@@ -23,20 +23,3 @@
 .holiday__label {
   color: var(--blue);
 }
-
-.holiday__btn {
-  padding: 8px 20px;
-  border-radius: 2px;
-  outline: none;
-  border: none;
-  cursor: pointer;
-  background-color: var(--blue);
-  color: var(--secondary);
-  transition: all 0.3s ease-out;
-}
-
-.holiday__btn:hover {
-  background: var(--secondary);
-  color: var(--primary);
-  transition: all 0.3s ease-out;
-}
