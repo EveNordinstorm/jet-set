@@ -13,13 +13,13 @@ function Cards() {
               src="images/new-york.jpg"
               text="Visit the iconic culture and landmarks of New York"
               label="City Break"
-              path="/services"
+              path="/holidays"
             />
             <CardItem
               src="images/italy.jpg"
               text="Take a journey through Italy's rich history, art and cuisine"
               label="Luxury"
-              path="/services"
+              path="/holidays"
             />
           </ul>
           <ul className="cards__items">
@@ -27,13 +27,13 @@ function Cards() {
               src="images/bali.jpg"
               text="Treat yourself in Bali by relaxing on pristine beaches"
               label="Relaxation"
-              path="/services"
+              path="/holidays"
             />
             <CardItem
               src="images/dubai.jpg"
               text="Explore the landscapes of Dubai from sand dunes to cities"
               label="Adventure"
-              path="/services"
+              path="/holidays"
             />
           </ul>
           <ul className="cards__items">
@@ -41,13 +41,13 @@ function Cards() {
               src="images/africa.jpg"
               text="Have an unforgettable experience encountering the wildlife of Africa"
               label="Adventure"
-              path="/services"
+              path="/holidays"
             />
             <CardItem
               src="images/cruise.jpg"
               text="Travel Europe in a private cruise"
               label="Cruise"
-              path="/services"
+              path="/holidays"
             />
           </ul>
           <ul className="cards__items">
@@ -55,13 +55,13 @@ function Cards() {
               src="images/iceland.jpg"
               text="Iceland offers an otherworldy escape to it's own unique culture"
               label="Culture"
-              path="/services"
+              path="/holidays"
             />
             <CardItem
               src="images/greece.jpg"
               text="Visit the timeless beauty of Greece and relax in the Mediterranean sun"
               label="Relaxation"
-              path="/services"
+              path="/holidays"
             />
           </ul>
         </div>

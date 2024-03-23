@@ -22,7 +22,9 @@ import {
   DropdownItem,
 } from "reactstrap";
 
-function Navbar() {
+import PropTypes from "prop-types";
+
+function Navbar({ direction }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
 
@@ -45,6 +47,10 @@ function Navbar() {
       setButton(true);
     }
   };
+
+  const [dropdownOpen, setDropdownOpen] = useState(false);
+
+  const toggle = () => setDropdownOpen((prevState) => !prevState);
 
   useEffect(() => {
     showButton();
@@ -111,13 +117,20 @@ function Navbar() {
               Log in
             </Button>
           )}
+
           {isAuthenticated && (
-            <UncontrolledDropdown nav inNavbar>
+            <UncontrolledDropdown
+              nav
+              inNavbar
+              isOpen={dropdownOpen}
+              toggle={toggle}
+              direction={direction}
+            >
               <DropdownToggle nav caret id="profileDropDown">
                 <img
                   src={user.picture}
                   alt="Profile"
-                  className="nav-user-profile rounded-circle text-white"
+                  className="nav-user-profile rounded-full text-white"
                   width="50"
                 />
               </DropdownToggle>
@@ -129,7 +142,7 @@ function Navbar() {
                   tag={RouterNavLink}
                   to="/profile"
                   className="dropdown-profile text-white"
-                  activeClassName="router-link-exact-active"
+                  // activeClassName="router-link-exact-active"
                 >
                   <FontAwesomeIcon icon={faUser} className="mr-3 text-white" />{" "}
                   Profile
@@ -153,5 +166,9 @@ function Navbar() {
     </>
   );
 }
+
+Navbar.propTypes = {
+  direction: PropTypes.string,
+};
 
 export default Navbar;
