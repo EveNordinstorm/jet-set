@@ -4,7 +4,7 @@
   --blue: #60b0d8;
 }
 
-.holidays__page {
+.holidays-page {
   background-color: rgba(96, 176, 216, 0.5);
   padding-top: 2rem;
 }
@@ -14,12 +14,12 @@
   color: var(--secondary);
 }
 
-.holidays__container {
+.holidays-container {
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.holiday__label {
+.holiday-label {
   color: var(--blue);
 }

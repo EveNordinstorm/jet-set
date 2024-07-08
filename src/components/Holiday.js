@@ -6,15 +6,15 @@ import "./Holidays.css";
 
 function Holiday() {
   return (
-    <div className="holidays__page">
+    <div className="holidays-page">
       <h1 className="intro">
         Which adventure are you choosing?
         <br />
         Explore your next getaway now!
       </h1>
-      <div className="holidays__container">
-        <div className="holidays__wrapper">
-          <ul className="holidays__items">
+      <div className="holidays-container">
+        <div className="holidays-wrapper">
+          <ul className="holidays-items">
             <HolidayItem
               src="images/new-york.jpg"
               label="City Break"

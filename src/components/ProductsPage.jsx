@@ -17,7 +17,7 @@ const ProductsPage = () => {
     const [activeImg1, setActiveImage1] = useState(images.img1)
     const [activeImg2, setActiveImage2] = useState(images.img5)
 
-    const [setAmount] = useState(1);
+    const [amount, setAmount] = useState(1);
 
     return (
         <>
@@ -45,6 +45,7 @@ const ProductsPage = () => {
                         <span className="py-4 px-6"></span>
                         <button className="bg-gray-200 py-2 px-5 rounded-lg text-sky-500 text-3xl" onClick={() => setAmount((prev) => prev + 1)}>+</button>
                     </div>
+                    {amount}
                     <Button buttonStyle="btn--blue" buttonSize="btn--medium">Add to Cart</Button>
                 </div>
             </div>
