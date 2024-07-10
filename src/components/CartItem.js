@@ -1,25 +1,18 @@
 import React from "react";
 import { Button } from "./Button";
 import { useCart } from "../context/CartContext"
+import holidayItems from "../data/holidays.json"
 import { formatCurrency } from "../utilities/formatCurrency"
 
-type HolidaysItemProps = {
+type CartItemProps = {
   id: number
-  imgUrl: string
-  label: string
-  title: string
-  text: string
-  price: number
+  quantity: number
 }
 
-export function HolidayItem({ id, imgUrl, label, title, text, price }: HolidayItemProps) {
-  const { 
-    getItemQuantity, 
-    increaseCartQuantity, 
-    decreaseCartQuantity, 
-    removeFromCart 
-  } = useShoppingCart()
-  const quantity = getItemQuantity(id)
+export function CartItem({ id, quantity }: CartItemProps) {
+  const { removeFromCart } = useShoppingCart()
+  const item = holidayItems.find(i => i.id === id)
+  if (item == null) return null
 
   return (
     <>

@@ -7,19 +7,22 @@ import Holidays from "./components/pages/Holidays";
 import Products from "./components/pages/Products";
 import Footer from "./components/Footer";
 import Profile from "./profile";
+import { CartProvider } from "./context/CartContext";
 
 function App() {
   return (
     <>
       <Router>
-        <Navbar />
-        <Routes>
-          <Route path="/" exact element={<Home />}></Route>
-          <Route path="/holidays" exact element={<Holidays />}></Route>
-          <Route path="/products" exact element={<Products />}></Route>
-          <Route path="/profile" exact element={<Profile />}></Route>
-        </Routes>
-        <Footer />
+        <CartProvider>
+          <Navbar />
+          <Routes>
+            <Route path="/" exact element={<Home />}></Route>
+            <Route path="/holidays" exact element={<Holidays />}></Route>
+            <Route path="/products" exact element={<Products />}></Route>
+            <Route path="/profile" exact element={<Profile />}></Route>
+          </Routes>
+          <Footer />
+        </CartProvider>
       </Router>
     </>
   );

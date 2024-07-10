@@ -1,0 +1,58 @@
+[
+    {"id": 1,
+    "imgUrl": "images/new-york.jpg",
+    "label": "City Break",
+    "title": "New York",
+    "text": "Discover the rich culture of this infamous city full of night life, iconic locations and unique people.",
+    "price": 1000
+    },
+    {"id": 2,
+    "imgUrl": "images/italy.jpg",
+    "label": "Luxuary",
+    "title": "Italy",
+    "text": "Where timeless beauty meets modern allure, filled with delectable cuisine, rich history, and breathtaking landscapes.",
+    "price": 1000
+    },
+    {"id": 3,
+    "imgUrl": "images/bali.jpg",
+    "label": "Relaxation",
+    "title": "Bali",
+    "text": "Where pristine beaches, lush landscapes, and vibrant culture create an unforgettable tropical retreat.",
+    "price": 1000
+    },
+    {"id": 4,
+    "imgUrl": "images/dubai.jpg",
+    "label": "Adventure",
+    "title": "Dubai",
+    "text": "Experience the epitome of luxury and innovation, dazzling skyscrapers, golden deserts, and world-class shopping await.",
+    "price": 1000
+    },
+    {"id": 5,
+    "imgUrl": "images/africa.jpg",
+    "label": "Adventure",
+    "title": "Africa",
+    "text": "Diverse landscapes, vibrant cultures, and awe-inspiring wildlife promise an unforgettable adventure.",
+    "price": 1000
+    },
+    {"id": 6,
+    "imgUrl": "images/cruise.jpg",
+    "label": "Cruise",
+    "title": "European Cruise",
+    "text": "Sail through the heart of Europe on a captivating cruise, where historic cities and scenic landscapes unfold.",
+    "price": 1000
+    },
+    {"id": 7,
+    "imgUrl": "images/iceland.jpg",
+    "label": "Culture",
+    "title": "Iceland",
+    "text": "Dramatic landscapes, geothermal wonders, and the Northern Lights create a truly magical experience.",
+    "price": 1000
+    },
+    {"id": 8,
+    "imgUrl": "images/greece.jpg",
+    "label": "Relaxation",
+    "title": "Greece",
+    "text": "Ancient history, sun-kissed islands, and delectable cuisine converge to create a Mediterranean paradise.",
+    "price": 1000
+    }
+]
