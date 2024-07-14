@@ -1,5 +1,3 @@
-import React from "react";
-import { Button } from "./Button";
 import { useCart } from "../context/CartContext"
 import { formatCurrency } from "../utilities/formatCurrency"
 
@@ -12,13 +10,14 @@ type HolidaysItemProps = {
   price: number
 }
 
-export function HolidayItem({ id, imgUrl, label, title, text, price }: HolidayItemProps) {
+export default function HolidayItem({ id, imgUrl, label, title, text, price }: HolidaysItemProps) {
   const { 
     getItemQuantity, 
+    addToCart,
     increaseCartQuantity, 
     decreaseCartQuantity, 
     removeFromCart 
-  } = useShoppingCart()
+  } = useCart()
   const quantity = getItemQuantity(id)
 
   return (
@@ -27,23 +26,23 @@ export function HolidayItem({ id, imgUrl, label, title, text, price }: HolidayIt
         <div>
           <img
             className="h-48 w-96 lg:h-72 lg:w-96 rounded-t lg:rounded-l lg:rounded-tr-none object-cover text-center overflow-hidden"
-            src={item.imgUrl}
+            src={imgUrl}
             title="Holiday destination"
           />
         </div>
         <div className="lg:w-96 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
           <div className="mb-8">
-            <p className="holiday__label text-sm flex items-center">
-              {item.label}
+            <p className="holiday--label text-sm flex items-center">
+              {label}
             </p>
             <div className="text-gray-900 font-bold text-2xl mb-2">
-              {item.title}
+              {title}
             </div>
-            <p className="text-gray-700 text-base mb-4">{item.text}</p>
-            <h2 className="mb-3 text-lg">{formatCurrency(item.price)}</h2>
-            <Button buttonStyle="btn--blue" buttonSize="btn--small">
+            <p className="text-gray-700 text-base mb-4">{text}</p>
+            <h2 className="mb-3 text-lg">{formatCurrency(price)}</h2>
+            <button onClick={() => addToCart(id)}>
               Book Now
-            </Button>
+            </button>
           </div>
         </div>
       </div>

@@ -10,7 +10,7 @@ type CartItemProps = {
 }
 
 export function CartItem({ id, quantity }: CartItemProps) {
-  const { removeFromCart } = useShoppingCart()
+  const { removeFromCart } = useCart()
   const item = holidayItems.find(i => i.id === id)
   if (item == null) return null
 
@@ -34,9 +34,9 @@ export function CartItem({ id, quantity }: CartItemProps) {
             </div>
             <p className="text-gray-700 text-base mb-4">{item.text}</p>
             <h2 className="mb-3 text-lg">{formatCurrency(item.price)}</h2>
-            <Button buttonStyle="btn--blue" buttonSize="btn--small">
+            <button>
               Book Now
-            </Button>
+            </button>
           </div>
         </div>
       </div>

@@ -1,3 +1,16 @@
+import Holidays from "../data/holidays.json";
+import HolidayItem from "./HolidayItem.tsx";
+
+export default function Holiday() {
+  return (
+    <>
+      {Holidays.map((item) => (
+        <HolidayItem key={item.id} {...item} />
+      ))}
+    </>
+  );
+}
+
 // import React from "react";
 // import { Link } from "react-router-dom";
 // import { Button } from "./Button";

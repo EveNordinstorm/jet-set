@@ -1,11 +1,13 @@
 [
     {
+        "id": 1000,
         "catagory": "Services",
         "name": "Guided Tour",
         "description": "Make the most of your holiday by adding on our tour package, available for all of our destinations.",
         "price": 300
     },
     {
+        "id": 1001,
         "catagory": "Services",
         "name": "Ticket Booker",
         "description": "Use our service to find you the best deal on flights so all you have to worry about is what you need to pack!",
