@@ -21,8 +21,8 @@ function App() {
             <Route path="/products" exact element={<Products />}></Route>
             <Route path="/profile" exact element={<Profile />}></Route>
           </Routes>
-          <Footer />
         </CartProvider>
+        <Footer />
       </Router>
     </>
   );

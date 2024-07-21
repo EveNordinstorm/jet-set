@@ -132,10 +132,10 @@ export default function Navbar({ direction }) {
                   color: "white",
                   width: "1.5rem",
                   height: "1.5rem",
-                  position: "absolute",
+                  // position: "absolute",
                   bottom: 0,
                   right: 0,
-                  transform: "translate(25%, 25%)",
+                  // transform: "translate(100%, -100%)",
                 }}
               >
                 {cartQuantity}

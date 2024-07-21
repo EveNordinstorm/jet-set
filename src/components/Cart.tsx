@@ -22,7 +22,7 @@ export function Cart({ isOpen }: CartProps) {
         <Stack gap={3}>
           {cartItems.map((cartItem) => {
             const item = items.find((i) => i.id === cartItem.id);
-            if (item) {
+              if (item) {
               if (isHolidayItem(item)) {
                 return (
                   <CartItem

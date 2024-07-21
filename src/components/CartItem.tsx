@@ -1,12 +1,9 @@
 import { useCart } from "../context/CartContext"
-import cartItems from "../data/holidays.json"
 import { formatCurrency } from "../utilities/formatCurrency"
 import { CartItemProps } from "../types/productTypes";
 
 export default function CartItem({ id, quantity, imgUrl, title, price }: CartItemProps) {
   const { removeFromCart } = useCart()
-  const item = cartItems.find(i => i.id === id)
-  if (item == null) return null
 
   return (
     <>
