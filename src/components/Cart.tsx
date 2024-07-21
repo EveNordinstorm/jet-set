@@ -1,10 +1,10 @@
 import { Offcanvas, Stack } from "react-bootstrap";
-// import Offcanvas from 'react-bootstrap/Offcanvas';
 import { useCart } from "../context/CartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
-import { CartItem } from "./CartItem";
+import CartItem from "./CartItem";
 import Holidays from "../data/holidays.json";
 import Products from "../data/products.json";
+import { isHolidayItem, isProductItem } from "../types/productTypes";
 
 type CartProps = {
   isOpen: boolean,
@@ -20,10 +20,38 @@ export function Cart({ isOpen }: CartProps) {
       </Offcanvas.Header>
       <Offcanvas.Body>
         <Stack gap={3}>
-          {cartItems.map((item) => (
-            <CartItem key={item.id} {...item} />
-          ))}
-          <div className="ms-auto fw-bold fs-5">
+          {cartItems.map((cartItem) => {
+            const item = items.find((i) => i.id === cartItem.id);
+            if (item) {
+              if (isHolidayItem(item)) {
+                return (
+                  <CartItem
+                    key={cartItem.id}
+                    id={cartItem.id}
+                    quantity={cartItem.quantity}
+                    imgUrl={item.imgUrl}
+                    title={item.title}
+                    price={item.price}
+                  />
+                );
+              } 
+              else if (isProductItem(item)) {
+                return (
+                  <CartItem
+                    key={cartItem.id}
+                    id={cartItem.id}
+                    quantity={cartItem.quantity}
+                    imgUrl={item.img1}
+                    title={item.name}
+                    price={item.price}
+                  />
+                );
+              }
+            } else {
+              return null;
+            }
+          })}
+          <div className="">
             Total{" "}
             {formatCurrency(
               cartItems.reduce((total, cartItem) => {

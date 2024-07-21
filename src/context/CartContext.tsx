@@ -47,7 +47,13 @@ export function CartProvider({ children }: CartProviderProps) {
   }
 
   function addToCart(id: number) {
-    return [{ id, quantity: 1 }]
+    setCartItems(currItems => {
+      if (currItems.find(item => item.id === id) == null) {
+        return [...currItems, { id, quantity: 1 }];
+      } else {
+        return currItems;
+      }
+    });
   }
 
   function increaseCartQuantity(id: number) {
