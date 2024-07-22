@@ -62,7 +62,7 @@ export default function Navbar({ direction }) {
 
   return (
     <>
-      <nav className="navbar">
+      <nav className="navbar bg-zinc-900">
         <div className="navbar-container">
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <img
@@ -99,11 +99,10 @@ export default function Navbar({ direction }) {
               </Link>
             </li>
 
-            <Button onClick={openCart}>
+            <Link to="/cart" className="cart-icon nav-links" onClick={openCart}>
               <svg
                 href="#"
                 width="35px"
-                className="text-white mx-2"
                 aria-hidden="true"
                 fill="white"
                 viewBox="0 0 377.82 367.39"
@@ -126,21 +125,8 @@ export default function Navbar({ direction }) {
                 ></path>
               </svg>
 
-              <div
-                className="rounded-circle bg-danger d-flex justify-content-center align-items-center"
-                style={{
-                  color: "white",
-                  width: "1.5rem",
-                  height: "1.5rem",
-                  // position: "absolute",
-                  bottom: 0,
-                  right: 0,
-                  // transform: "translate(100%, -100%)",
-                }}
-              >
-                {cartQuantity}
-              </div>
-            </Button>
+              <div className="cart-counter">{cartQuantity}</div>
+            </Link>
 
             <li>
               <Link

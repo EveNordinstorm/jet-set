@@ -1,5 +1,4 @@
 .navbar {
-  background: linear-gradient(90deg, rgb(28, 27, 27) 0%, rgb(26, 23, 23) 100%);
   height: 80px;
   display: flex;
   justify-content: center;
@@ -55,6 +54,7 @@
   color: #fff;
   display: flex;
   align-items: center;
+  justify-content: center;
   text-decoration: none;
   padding: 0.5rem 1rem;
   height: 100%;
@@ -77,6 +77,19 @@
   display: none;
 }
 
+.cart-counter {
+  color: white;
+  background-color: red;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  translate: 25px -16px;
+}
+
 @media screen and (max-width: 960px) {
   .NavbarItems {
     position: relative;
@@ -95,7 +108,7 @@
   }
 
   .nav-menu.active {
-    background: #242222;
+    background: #18181b;
     left: 0;
     opacity: 1;
     transition: all 0.5s ease;
@@ -111,7 +124,7 @@
 
   .nav-links:hover {
     background-color: #fff;
-    color: #242424;
+    color: #18181b;
     border-radius: 0;
   }
 
@@ -154,7 +167,7 @@
 
   .nav-links-mobile:hover {
     background: #fff;
-    color: #242424;
+    color: #18181b;
     transition: 250ms;
   }
 }

@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 
 function Footer() {
   return (
-    <div className="footer-container">
+    <div className="footer-container bg-zinc-900">
       <section className="footer-subscription">
         <p className="footer-subscription-heading">
           Join the Jet Setters newsletter to receive exclusive offers

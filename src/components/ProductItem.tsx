@@ -70,28 +70,28 @@ export default function ProductItem({
         <div>
           <div className="flex flex-col gap-4 lg:mt-24 lg:w-2/4">
             <div>
-              <span className="text-sky-500 font-semibold">{catagory}</span>
+              <span className="text-sky-600 font-semibold">{catagory}</span>
               <h1 className="text-3xl font-bold">{name}</h1>
             </div>
-            <p className="text-gray-700">{description}</p>
+            <p className="text-zinc-700 text-lg">{description}</p>
             <h6 className="text-2xl font-semibold">{formatCurrency(price)}</h6>
             
             <div className="items-center">
             {quantity === 0 ? (
-            <button className="" onClick={() => increaseCartQuantity(id)}>
+            <button className="text-xl text-white hover:bg-zinc-900 bg-sky-600 rounded py-2 px-6" onClick={() => increaseCartQuantity(id)}>
               + Add To Cart
             </button>
             ) : (
             <div>
               <button
-                className="bg-gray-200 py-2 px-5 rounded-lg text-sky-500 text-3xl"
+                className="text-white bg-sky-600 hover:bg-zinc-900 py-2 px-5 rounded-full text-3xl"
                 onClick={() => decreaseCartQuantity(id)}
               >
                 -
               </button>
               <span className="py-4 px-6 text-xl">{quantity}</span>
               <button
-                className="bg-gray-200 py-2 px-5 rounded-lg text-sky-500 text-3xl"
+                className="text-white bg-sky-600 hover:bg-zinc-900 py-2 px-5 rounded-full text-3xl"
                 onClick={() => increaseCartQuantity(id)}
               >
                 +
