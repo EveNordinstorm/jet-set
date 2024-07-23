@@ -1,35 +1,22 @@
-import React, { useState, useEffect } from "react";
-import { NavLink as RouterNavLink } from "react-router-dom";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { Button } from "./Button";
 import { useAuth0 } from "@auth0/auth0-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faUser, faPowerOff } from "@fortawesome/free-solid-svg-icons";
 import { useCart } from "../context/CartContext";
+import Nav from "react-bootstrap/Nav";
+import Navbar from "react-bootstrap/Navbar";
+import NavDropdown from "react-bootstrap/NavDropdown";
+import PropTypes from "prop-types";
 import "./Navbar.css";
 
-import {
-  Collapse,
-  Container,
-  NavbarToggler,
-  NavbarBrand,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-} from "reactstrap";
-
-import PropTypes from "prop-types";
-
-export default function Navbar({ direction }) {
+export default function NavbarComponent({ direction }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
+  const [dropdownOpen, setDropdownOpen] = useState(false);
 
   const { openCart, cartQuantity } = useCart();
-
   const { user, isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   const logoutWithRedirect = () =>
@@ -50,15 +37,18 @@ export default function Navbar({ direction }) {
     }
   };
 
-  const [dropdownOpen, setDropdownOpen] = useState(false);
-
-  const toggle = () => setDropdownOpen((prevState) => !prevState);
+  const toggleDropdown = () => {
+    setDropdownOpen((prevState) => !prevState);
+  };
 
   useEffect(() => {
     showButton();
   }, []);
 
-  window.addEventListener("resize", showButton);
+  useEffect(() => {
+    window.addEventListener("resize", showButton);
+    return () => window.removeEventListener("resize", showButton);
+  }, []);
 
   return (
     <>
@@ -150,47 +140,55 @@ export default function Navbar({ direction }) {
           )}
 
           {isAuthenticated && (
-            <UncontrolledDropdown
-              nav
-              inNavbar
-              isOpen={dropdownOpen}
-              toggle={toggle}
-              direction={direction}
-            >
-              <DropdownToggle nav caret id="profileDropDown">
-                <img
-                  src={user.picture}
-                  alt="Profile"
-                  className="nav-user-profile rounded-full text-white"
-                  width="50"
-                />
-              </DropdownToggle>
-              <DropdownMenu>
-                <DropdownItem className="text-white" header>
-                  {user.name}
-                </DropdownItem>
-                <DropdownItem
-                  tag={RouterNavLink}
-                  to="/profile"
-                  className="dropdown-profile text-white"
-                  // activeClassName="router-link-exact-active"
-                >
-                  <FontAwesomeIcon icon={faUser} className="mr-3 text-white" />{" "}
-                  Profile
-                </DropdownItem>
-                <DropdownItem
-                  className="text-white"
-                  id="qsLogoutBtn"
-                  onClick={() => logoutWithRedirect()}
-                >
-                  <FontAwesomeIcon
-                    icon={faPowerOff}
-                    className="mr-3 text-white"
-                  />{" "}
-                  Log out
-                </DropdownItem>
-              </DropdownMenu>
-            </UncontrolledDropdown>
+            <div>
+              <Navbar.Toggle aria-controls="navbar-dark-example" />
+              <Navbar.Collapse id="navbar-dark-example">
+                <Nav>
+                  <NavDropdown
+                    className="text-white mt-5 ml-32 lg:ml-4"
+                    id="nav-dropdown-dark-example"
+                    title={
+                      <span onClick={toggleDropdown}>
+                        <FontAwesomeIcon icon={faUser} className="mr-2" />
+                        Profile
+                      </span>
+                    }
+                    menuVariant="dark"
+                    show={dropdownOpen}
+                    onToggle={() => setDropdownOpen(!dropdownOpen)}
+                  >
+                    <div className="bg-zinc-900 rounded-b p-3">
+                      <NavDropdown.Item
+                        href="/profile"
+                        className="flex items-center"
+                      >
+                        <img
+                          src={user.picture}
+                          alt="Profile"
+                          className="rounded-full text-white my-2 mr-2"
+                          width="30"
+                        />
+                        {user.name}
+                      </NavDropdown.Item>
+
+                      <NavDropdown.Divider />
+
+                      <NavDropdown.Item
+                        className="text-white"
+                        id="qsLogoutBtn"
+                        onClick={() => logoutWithRedirect()}
+                      >
+                        <FontAwesomeIcon
+                          icon={faPowerOff}
+                          className="text-white mr-3 mt-4"
+                        />{" "}
+                        Log out
+                      </NavDropdown.Item>
+                    </div>
+                  </NavDropdown>
+                </Nav>
+              </Navbar.Collapse>
+            </div>
           )}
         </div>
       </nav>
@@ -198,6 +196,6 @@ export default function Navbar({ direction }) {
   );
 }
 
-Navbar.propTypes = {
+NavbarComponent.propTypes = {
   direction: PropTypes.string,
 };

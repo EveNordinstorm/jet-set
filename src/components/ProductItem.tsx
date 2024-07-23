@@ -32,8 +32,8 @@ export default function ProductItem({
 
   return (
     <>
-      <div className="grid lg:grid-cols-2 m-8 gap-4 md:gap-10">
-        <div className="flex flex-col flex-wrap gap-6">
+      <div className="grid lg:grid-cols-2 m-8 gap-4 md:gap-10 my-24">
+        <div className="flex flex-col flex-wrap gap-6 lg:ml-20">
           <img
             src={activeImg1}
             alt=""

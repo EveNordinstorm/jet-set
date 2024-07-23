@@ -1,5 +1,5 @@
 import React from "react";
-import Navbar from "./components/Navbar";
+import NavbarComponent from "./components/Navbar";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import "./App.css";
 import Home from "./components/pages/Home";
@@ -8,13 +8,15 @@ import Products from "./components/pages/Products";
 import Footer from "./components/Footer";
 import Profile from "./profile";
 import { CartProvider } from "./context/CartContext";
+import ScrollToTop from "./ScrollToTop";
 
 function App() {
   return (
     <>
       <Router>
         <CartProvider>
-          <Navbar />
+          <NavbarComponent />
+          <ScrollToTop />
           <Routes>
             <Route path="/" exact element={<Home />}></Route>
             <Route path="/holidays" exact element={<Holidays />}></Route>

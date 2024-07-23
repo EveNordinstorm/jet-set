@@ -2,8 +2,9 @@ import { useCart } from "../context/CartContext"
 import { formatCurrency } from "../utilities/formatCurrency"
 import { CartItemProps } from "../types/productTypes";
 
-export default function CartItem({ id, quantity, imgUrl, title, price }: CartItemProps) {
-  const { removeFromCart } = useCart()
+export default function CartItem({ id, imgUrl, title, price }: CartItemProps) {
+  const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useCart();
+  const quantity = getItemQuantity(id);
 
   return (
     <>
@@ -17,14 +18,33 @@ export default function CartItem({ id, quantity, imgUrl, title, price }: CartIte
           />
         </div>
       )}
-        <div className="lg:w-96 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
-          <div className="mb-8">
-          {title && <div className="text-zinc-900 font-bold text-2xl mt-2">{title}</div>}
-            <h2 className="mb-3 mt-24 text-xl font-bold">{formatCurrency(price)}</h2>
-            <button onClick={() => removeFromCart(id)} className="text-md text-white hover:bg-red-700 bg-zinc-900 rounded-full py-1 px-4">
+      
+      <div className="lg:w-96 bg-white rounded-b lg:rounded-b-none lg:rounded-r p-4 flex flex-col justify-between leading-normal">
+        <div className="flex justify-center lg:block">
+        <div>
+          {title && <div className="text-center lg:text-left text-zinc-900 font-bold text-2xl mt-2">{title}</div>}
+            <h2 className="text-center lg:text-left mb-3 mt-10 text-xl font-bold">{formatCurrency(price)}</h2>
+            
+            <div className="mt-6">
+              <button
+                className="text-white bg-sky-600 hover:bg-zinc-900 py-1 px-4 rounded-full text-2xl"
+                onClick={() => decreaseCartQuantity(id)}
+              >
+                -
+              </button>
+              <span className="py-4 px-6 text-xl">{quantity}</span>
+              <button
+                className="text-white bg-sky-600 hover:bg-zinc-900 py-1 px-4 rounded-full text-2xl"
+                onClick={() => increaseCartQuantity(id)}
+              >
+                +
+              </button>
+              </div>
+              <button onClick={() => removeFromCart(id)} className="text-md text-white hover:bg-red-700 bg-zinc-900 rounded py-2 px-4 mt-4">
               Remove from Cart
             </button>
           </div>
+        </div>
         </div>
       </div>
     </>

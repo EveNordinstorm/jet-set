@@ -1,8 +1,7 @@
-import React from "react";
-import "../App.css";
-import { Button } from "./Button";
-import "./HeroSection.css";
 import { useAuth0 } from "@auth0/auth0-react";
+import "../App.css";
+import "./HeroSection.css";
+import { Button } from "./Button";
 
 function HeroSection() {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
@@ -13,14 +12,6 @@ function HeroSection() {
       <h1>ARE YOU READY?</h1>
       <p>Jet off to your dream destination with Jet Set holidays!</p>
       <div className="hero-btns">
-        {/* <Button
-          className="btns"
-          buttonStyle="btn--outline"
-          buttonSize="btn--large"
-        >
-          GET STARTED
-        </Button> */}
-
         {!isAuthenticated && (
           <Button
             id="qsLoginBtn"
@@ -32,7 +23,7 @@ function HeroSection() {
           </Button>
         )}
 
-        <a href="https://youtu.be/QtYahgWFtK0?feature=shared">
+        <a href="https://youtu.be/QtYahgWFtK0?feature=shared" target="_blank">
           <Button
             className="btns"
             buttonStyle="btn--primary"

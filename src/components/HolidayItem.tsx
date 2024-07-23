@@ -12,10 +12,8 @@ type HolidaysItemProps = {
 
 export default function HolidayItem({ id, imgUrl, label, title, text, price }: HolidaysItemProps) {
   const { 
-    getItemQuantity, 
     addToCart
   } = useCart()
-  const quantity = getItemQuantity(id)
 
   return (
     <>
@@ -45,7 +43,6 @@ export default function HolidayItem({ id, imgUrl, label, title, text, price }: H
         </div>
       </div>
     </div>
-      
     </>
   );
 }
