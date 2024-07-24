@@ -8,7 +8,9 @@ function HeroSection() {
 
   return (
     <div className="hero-container">
-      <video src="/videos/clouds-video.mp4" autoPlay loop muted />
+      <div className="video-background">
+        <video src="/videos/clouds-video.mp4" autoPlay loop muted />
+      </div>
       <h1>ARE YOU READY?</h1>
       <p>Jet off to your dream destination with Jet Set holidays!</p>
       <div className="hero-btns">

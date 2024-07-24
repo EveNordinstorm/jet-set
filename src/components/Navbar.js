@@ -91,10 +91,10 @@ export default function NavbarComponent({ direction }) {
 
             <Link to="/cart" className="cart-icon nav-links" onClick={openCart}>
               <svg
-                href="#"
+                className="cart-svg"
                 width="35px"
                 aria-hidden="true"
-                fill="white"
+                // fill="white"
                 viewBox="0 0 377.82 367.39"
                 xmlns="http://www.w3.org/2000/svg"
               >

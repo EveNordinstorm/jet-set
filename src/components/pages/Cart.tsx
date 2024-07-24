@@ -10,7 +10,7 @@ type CartProps = {
   isOpen: boolean,
 };
 
-export function Cart({ isOpen }: CartProps) {
+function Cart({ isOpen }: CartProps) {
   const items = [...Holidays,...Products]
   const { cartItems } = useCart();
   return (
@@ -67,3 +67,5 @@ export function Cart({ isOpen }: CartProps) {
     </div>
   );
 }
+
+export default Cart;

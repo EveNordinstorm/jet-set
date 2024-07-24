@@ -77,6 +77,10 @@
   display: none;
 }
 
+.cart-svg {
+  fill: #fff;
+}
+
 .cart-counter {
   color: white;
   background-color: red;
@@ -117,7 +121,7 @@
 
   .nav-links {
     text-align: center;
-    padding: 2rem;
+    padding: 1rem;
     width: 100%;
     display: table;
   }
@@ -132,7 +136,7 @@
     position: absolute;
     top: 2;
     left: 0;
-    transform: translate(25%, 50%);
+    translate: 25%, 50%;
   }
 
   .menu-icon {
@@ -169,5 +173,19 @@
     background: #fff;
     color: #18181b;
     transition: 250ms;
+  }
+
+  .cart-icon {
+    margin: 1rem auto;
+    height: 12%;
+    text-align: center;
+    padding: 14px 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .cart-svg:hover {
+    fill: #18181b;
   }
 }

@@ -8,6 +8,7 @@ import Products from "./components/pages/Products";
 import Footer from "./components/Footer";
 import Profile from "./profile";
 import { CartProvider } from "./context/CartContext";
+import Cart from "./components/pages/Cart";
 import ScrollToTop from "./ScrollToTop";
 
 function App() {
@@ -21,6 +22,7 @@ function App() {
             <Route path="/" exact element={<Home />}></Route>
             <Route path="/holidays" exact element={<Holidays />}></Route>
             <Route path="/products" exact element={<Products />}></Route>
+            <Route path="/cart" exact element={<Cart />}></Route>
             <Route path="/profile" exact element={<Profile />}></Route>
           </Routes>
         </CartProvider>
