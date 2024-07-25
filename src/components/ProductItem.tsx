@@ -28,7 +28,7 @@ export default function ProductItem({
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useCart();
   const quantity = getItemQuantity(id);
 
-  const [activeImg1, setActiveImage1] = useState(img1);
+  const [activeImg1, setActiveImage1] = useState(`https://localhost:5001/${img1}`);
 
   return (
     <>
@@ -44,25 +44,25 @@ export default function ProductItem({
               src={`https://localhost:5001/${img1}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
-              onClick={() => setActiveImage1(img1)}
+              onClick={() => setActiveImage1(`https://localhost:5001/${img1}`)}
             />
             <img
               src={`https://localhost:5001/${img2}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
-              onClick={() => setActiveImage1(img2)}
+              onClick={() => setActiveImage1(`https://localhost:5001/${img2}`)}
             />
             <img
               src={`https://localhost:5001/${img3}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
-              onClick={() => setActiveImage1(img3)}
+              onClick={() => setActiveImage1(`https://localhost:5001/${img3}`)}
             />
             <img
               src={`https://localhost:5001/${img4}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
-              onClick={() => setActiveImage1(img4)}
+              onClick={() => setActiveImage1(`https://localhost:5001/${img4}`)}
             />
           </div>
         </div>

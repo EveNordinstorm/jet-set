@@ -94,7 +94,6 @@ export default function NavbarComponent({ direction }) {
                 className="cart-svg"
                 width="35px"
                 aria-hidden="true"
-                // fill="white"
                 viewBox="0 0 377.82 367.39"
                 xmlns="http://www.w3.org/2000/svg"
               >
@@ -114,19 +113,20 @@ export default function NavbarComponent({ direction }) {
                   d="m312.96,367.39c-1.06-.51-2.07-1.14-3.18-1.5-14.74-4.79-24.34-19.82-22.03-34.53,2.55-16.21,15.26-27.51,31.22-27.75,15.79-.24,29.19,10.84,31.98,26.43,3.05,17.05-8.7,33.83-25.66,36.66-.39.07-.73.46-1.1.69h-11.23Z"
                 ></path>
               </svg>
-
               <div className="cart-counter">{cartQuantity}</div>
             </Link>
 
-            <li>
-              <Link
-                id="qsLoginBtn"
-                className="nav-links-mobile"
-                onClick={() => loginWithRedirect()}
-              >
-                Log in
-              </Link>
-            </li>
+            {!isAuthenticated && (
+              <li>
+                <Link
+                  id="qsLoginBtn"
+                  className="nav-links-mobile"
+                  onClick={() => loginWithRedirect()}
+                >
+                  Log in
+                </Link>
+              </li>
+            )}
           </ul>
           {!isAuthenticated && button && (
             <Button
