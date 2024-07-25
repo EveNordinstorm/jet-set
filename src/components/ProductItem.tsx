@@ -41,25 +41,25 @@ export default function ProductItem({
           />
           <div className="flex flex-row gap-6 lg:mb-4">
             <img
-              src={img1}
+              src={`https://localhost:5001/${img1}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
               onClick={() => setActiveImage1(img1)}
             />
             <img
-              src={img2}
+              src={`https://localhost:5001/${img2}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
               onClick={() => setActiveImage1(img2)}
             />
             <img
-              src={img3}
+              src={`https://localhost:5001/${img3}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
               onClick={() => setActiveImage1(img3)}
             />
             <img
-              src={img4}
+              src={`https://localhost:5001/${img4}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
               onClick={() => setActiveImage1(img4)}

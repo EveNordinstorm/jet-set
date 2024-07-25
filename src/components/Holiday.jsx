@@ -1,9 +1,38 @@
-import Holidays from "../data/holidays.json";
-import HolidayItem from "./HolidayItem";
-import { Link } from "react-router-dom";
-import { Button } from "./Button";
+import { useEffect, useState } from 'react';
+import HolidayItem from './HolidayItem';
+import { Button } from './Button';
+import { Link } from 'react-router-dom';
+
+const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
 
 export default function Holiday() {
+  const [holidays, setHolidays] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
+
+  useEffect(() => {
+    const fetchHolidays = async () => {
+      try {
+        const response = await fetch(`${API_BASE_URL}/Holidays`);
+        if (!response.ok) {
+          throw new Error('Network response was not ok');
+        }
+        const data = await response.json();
+        setHolidays(data);
+      } catch (error) {
+        setError(error);
+      } finally {
+        setLoading(false);
+      }
+    };
+
+    fetchHolidays();
+  }, []);
+
+  if (loading) return <p>Loading...</p>;
+  if (error) return <p>Error: {error.message}</p>;
+
+
   return (
     <>
       <div className="bg-sky-300 py-12">
@@ -13,7 +42,7 @@ export default function Holiday() {
           Explore your next getaway now!
         </h2>
 
-        {Holidays.map((item) => (
+        {holidays.map((item) => (
           <HolidayItem key={item.id} {...item} />
         ))}
 

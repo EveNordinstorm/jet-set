@@ -22,7 +22,7 @@ export default function HolidayItem({ id, imgUrl, label, title, text, price }: H
         <div>
           <img
             className="h-48 w-96 lg:h-72 lg:w-96 rounded-t lg:rounded-l lg:rounded-tr-none object-cover text-center overflow-hidden"
-            src={imgUrl}
+            src={`https://localhost:5001/${imgUrl}`}
             title="Holiday destination"
           />
         </div>
