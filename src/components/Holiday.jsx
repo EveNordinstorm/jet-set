@@ -97,7 +97,7 @@ export default function Holiday() {
 
         <div className="flex justify-center mt-10">
           <div
-            className="block w-[386px] h-[450px] lg:w-[772px] lg:h-[300px] rounded bg-center bg-black/60 bg-blend-overlay bg-cover p-8 drop-shadow-lg"
+            className="block w-[386px] h-[550px] lg:w-[772px] lg:h-[375px] rounded bg-center bg-black/60 bg-blend-overlay bg-cover p-8 drop-shadow-lg"
             style={{
               backgroundImage: `url("images/tour-group-2.jpg")`,
             }}
