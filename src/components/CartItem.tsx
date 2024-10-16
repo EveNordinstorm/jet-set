@@ -2,6 +2,12 @@ import { useCart } from "../context/CartContext";
 import { formatCurrency } from "../utilities/formatCurrency";
 import { CartItemProps } from "../types/productTypes";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL ?? '';
+
+if (!apiBaseUrl) {
+  throw new Error("API base URL is not defined. Please set the REACT_APP_API_BASE_URL environment variable.");
+}
+
 export default function CartItem({ id, imgUrl, title, price }: CartItemProps) {
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useCart();
   const quantity = getItemQuantity(id);
@@ -13,7 +19,7 @@ export default function CartItem({ id, imgUrl, title, price }: CartItemProps) {
           <div>
             <img
               className="h-48 w-96 lg:h-72 lg:w-96 rounded-t lg:rounded-l lg:rounded-tr-none object-cover text-center overflow-hidden"
-              src={`https://localhost:5001/${imgUrl}`}
+              src={`${apiBaseUrl.replace("/api", "")}/${imgUrl}`}
               alt={title}
             />
           </div>

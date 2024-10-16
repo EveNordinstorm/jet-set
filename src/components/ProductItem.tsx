@@ -14,6 +14,12 @@ type ProductItemProps = {
   price: number;
 };
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL ?? '';
+
+if (!apiBaseUrl) {
+  throw new Error("API base URL is not defined. Please set the REACT_APP_API_BASE_URL environment variable.");
+}
+
 export default function ProductItem({
   id,
   img1,
@@ -28,7 +34,7 @@ export default function ProductItem({
   const { getItemQuantity, increaseCartQuantity, decreaseCartQuantity, removeFromCart } = useCart();
   const quantity = getItemQuantity(id);
 
-  const [activeImg1, setActiveImage1] = useState(`https://localhost:5001/${img1}`);
+  const [activeImg1, setActiveImage1] = useState(`${apiBaseUrl.replace("/api", "")}/${img1}`);
 
   return (
     <>
@@ -41,28 +47,28 @@ export default function ProductItem({
           />
           <div className="flex flex-row gap-6 lg:mb-4">
             <img
-              src={`https://localhost:5001/${img1}`}
+              src={`${apiBaseUrl.replace("/api", "")}/${img1}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
-              onClick={() => setActiveImage1(`https://localhost:5001/${img1}`)}
+              onClick={() => setActiveImage1(`${apiBaseUrl.replace("/api", "")}/${img1}`)}
             />
             <img
-              src={`https://localhost:5001/${img2}`}
+              src={`${apiBaseUrl.replace("/api", "")}/${img2}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
-              onClick={() => setActiveImage1(`https://localhost:5001/${img2}`)}
+              onClick={() => setActiveImage1(`${apiBaseUrl.replace("/api", "")}/${img2}`)}
             />
             <img
-              src={`https://localhost:5001/${img3}`}
+              src={`${apiBaseUrl.replace("/api", "")}/${img3}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
-              onClick={() => setActiveImage1(`https://localhost:5001/${img3}`)}
+              onClick={() => setActiveImage1(`${apiBaseUrl.replace("/api", "")}/${img3}`)}
             />
             <img
-              src={`https://localhost:5001/${img4}`}
+              src={`${apiBaseUrl.replace("/api", "")}/${img4}`}
               alt=""
               className="w-24 h-24 rounded-md cursor-pointer object-cover"
-              onClick={() => setActiveImage1(`https://localhost:5001/${img4}`)}
+              onClick={() => setActiveImage1(`${apiBaseUrl.replace("/api", "")}/${img4}`)}
             />
           </div>
         </div>

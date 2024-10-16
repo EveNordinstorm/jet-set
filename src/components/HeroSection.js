@@ -3,13 +3,26 @@ import "../App.css";
 import "./HeroSection.css";
 import { Button } from "./Button";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL ?? "";
+
+if (!apiBaseUrl) {
+  throw new Error(
+    "API base URL is not defined. Please set the REACT_APP_API_BASE_URL environment variable."
+  );
+}
+
 function HeroSection() {
   const { isAuthenticated, loginWithRedirect } = useAuth0();
 
   return (
     <div className="hero-container">
       <div className="video-background">
-        <video src="/videos/clouds-video.mp4" autoPlay loop muted />
+        <video
+          src={`${apiBaseUrl.replace("/api", "")}/Videos/clouds-video.mp4`}
+          autoPlay
+          loop
+          muted
+        />
       </div>
       <h1>ARE YOU READY?</h1>
       <p>Jet off to your dream destination with Jet Set holidays!</p>

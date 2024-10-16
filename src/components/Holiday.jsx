@@ -5,7 +5,11 @@ import { Link } from 'react-router-dom';
 
 const ERROR_IMAGE_URL = "/images/cannot-fetch.png";
 
-const API_BASE_URL = process.env.REACT_APP_API_BASE_URL;
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL ?? '';
+
+if (!apiBaseUrl) {
+  throw new Error("API base URL is not defined. Please set the REACT_APP_API_BASE_URL environment variable.");
+}
 
 export default function Holiday() {
   const [holidays, setHolidays] = useState([]);
@@ -15,7 +19,7 @@ export default function Holiday() {
   useEffect(() => {
     const fetchHolidays = async () => {
       try {
-        const response = await fetch(`${API_BASE_URL}/Holidays`);
+        const response = await fetch(`${apiBaseUrl}/Holidays`);
         if (!response.ok) {
           throw new Error('Network response was not ok');
         }
@@ -99,7 +103,7 @@ export default function Holiday() {
           <div
             className="block w-[386px] h-[550px] lg:w-[772px] lg:h-[375px] rounded bg-center bg-black/60 bg-blend-overlay bg-cover p-8 drop-shadow-lg"
             style={{
-              backgroundImage: `url("images/tour-group-2.jpg")`,
+              backgroundImage: `url("${apiBaseUrl.replace("/api", "")}/Images/tour-group-2.jpg")`,
             }}
           >
             <h5 className="mb-4 text-3xl font-medium leading-tight text-neutral-800 text-white dark:text-neutral-50">

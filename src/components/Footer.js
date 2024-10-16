@@ -2,6 +2,14 @@ import { Button } from "./Button";
 import "./Footer.css";
 import { Link } from "react-router-dom";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL ?? "";
+
+if (!apiBaseUrl) {
+  throw new Error(
+    "API base URL is not defined. Please set the REACT_APP_API_BASE_URL environment variable."
+  );
+}
+
 function Footer() {
   return (
     <div className="footer-container bg-zinc-900">
@@ -67,7 +75,10 @@ function Footer() {
             <Link to="/" className="social-logo">
               <img
                 className="jet-set-logo-footer"
-                src="/Jet Set Logo-01.png"
+                src={`${apiBaseUrl.replace(
+                  "/api",
+                  ""
+                )}/Images/jet-set-logo-white.png`}
                 alt="Jet Set Logo"
               />
             </Link>

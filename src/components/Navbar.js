@@ -11,6 +11,14 @@ import NavDropdown from "react-bootstrap/NavDropdown";
 import PropTypes from "prop-types";
 import "./Navbar.css";
 
+const apiBaseUrl = process.env.REACT_APP_API_BASE_URL ?? "";
+
+if (!apiBaseUrl) {
+  throw new Error(
+    "API base URL is not defined. Please set the REACT_APP_API_BASE_URL environment variable."
+  );
+}
+
 export default function NavbarComponent({ direction }) {
   const [click, setClick] = useState(false);
   const [button, setButton] = useState(true);
@@ -57,7 +65,10 @@ export default function NavbarComponent({ direction }) {
           <Link to="/" className="navbar-logo" onClick={closeMobileMenu}>
             <img
               className="jet-set-logo"
-              src="/Jet Set Logo-01.png"
+              src={`${apiBaseUrl.replace(
+                "/api",
+                ""
+              )}/Images/jet-set-logo-white.png`}
               alt="Jet Set Logo"
             />
           </Link>
